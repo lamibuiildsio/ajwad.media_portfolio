@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJWAD.MEDIA</title>
+  
+  <!-- Google Fonts - Modern Bold Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Martel+Sans:wght@400;600;700;800&family=Mate+SC&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-logo">
+      <img src="./ajwad.media.png" alt="Ajwad logo" />
+    </div>
+    <nav class="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO WITH MOUSE-TRACKING CAR -->
+  <section id="home" class="hero">
+    <!-- Moving car background -->
+    <div class="hero-bg" id="heroCar"></div>
+    
+    <!-- Text on top with animated letters -->
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        <span style="--i:1">A</span><span style="--i:2">J</span><span style="--i:3">W</span><span style="--i:4">A</span><span style="--i:5">D</span><span style="--i:6">.</span><span style="--i:7">M</span><span style="--i:8">E</span><span style="--i:9">D</span><span style="--i:10">I</span><span style="--i:11">A</span>
+      </h1>
+    </div>
+    
+    <!-- Particle Background -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects section">
+    <div class="section-fade-top"></div>
+    <div class="section-fade-bottom"></div>
+    
+    <div class="section-nav">
+      <a href="#projects" class="section-title animate-on-scroll">Projects</a>
+    </div>
+
+    <div class="projects-layout">
+      <!-- LIQUID GLASS CARD -->
+      <div class="projects-intro-card animate-on-scroll">
+        <div class="projects-intro-blur"></div>
+        <h2>My<br/>Projects</h2>
+      </div>
+
+      <!-- HORIZONTAL STRIP -->
+      <div class="projects-strip" id="projectsStrip">
+        <!-- 1 - Landscape -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.1s">
+          <video controls poster="./Audi R8.jpg">
+            <source src="./Audi Out Me.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- 2 - Landscape -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.2s">
+          <video controls poster="./Mclaren.jpg">
+            <source src="./Mclaren Out .mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- 3 - Landscape -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.3s">
+          <video controls poster="thumbnails/project3-thumb.jpg">
+            <source src="./Amg GT Out.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- 4 - Portrait -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.4s">
+          <video controls poster="thumbnails/project4-thumb.jpg">
+            <source src="./EJADAH Out.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- 5 - Landscape -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.5s">
+          <video controls poster="./400 Z.jpg">
+            <source src="./400Z Out Me.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <!-- 6 - Portrait -->
+        <article class="project-panel animate-on-scroll" style="--delay: 0.6s">
+          <video controls poster="thumbnails/project6-thumb.jpg">
+            <source src="./Godwin out.mp4" type="video/mp4" />
+          </video>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about section">
+    <div class="section-fade-top"></div>
+    <div class="section-fade-bottom"></div>
+    
+    <div class="section-nav">
+      <a href="#about" class="section-title animate-on-scroll">About</a>
+    </div>
+
+    <div class="about-inner">
+      <div class="about-left">
+        <p class="about-heading animate-on-scroll" style="--delay: 0.1s">
+          Hey I'm Ajwad, a Video Editor and a Passionate Cinematographer.
+        </p>
+        <div class="about-logo animate-on-scroll" style="--delay: 0.2s">
+          <img src="./ajwad.media.png" alt="Ajwad logo" class="logo-glow" />
+        </div>
+      </div>
+
+      <div class="about-right">
+        <p class="about-paragraph animate-on-scroll" style="--delay: 0.3s">
+          For the past one year I have been freelancing, working closely with creators,
+          brands and teams to bring their ideas to life through visuals. It has been a journey filled
+          with learning, collaboration and a lot of creative joy.
+        </p>
+
+        <div class="tools-row">
+          <img src="./logos_adobe-premiere.png" alt="Premiere Pro" class="animate-on-scroll" style="--delay: 0.4s" />
+          <img src="./ae.png" alt="After Effects" class="animate-on-scroll" style="--delay: 0.5s" />
+          <img src="./lr.png" alt="Lightroom" class="animate-on-scroll" style="--delay: 0.6s" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact section">
+    <div class="section-fade-top"></div>
+    
+    <div class="section-nav">
+      <a href="#contact" class="section-title animate-on-scroll">Contact</a>
+    </div>
+
+    <div class="contact-inner">
+      <div class="contact-form-card animate-on-scroll" style="--delay: 0.1s">
+        <h2>Send me a message</h2>
+        <form>
+          <label>Your name</label>
+          <input type="text" placeholder="Enter your full name" />
+
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email address" />
+
+          <label>Your Message</label>
+          <textarea rows="4" placeholder="Tell me about your project or just say hello..."></textarea>
+
+          <button type="submit" class="btn-primary">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-info-column">
+        <div class="contact-card animate-on-scroll" style="--delay: 0.2s">
+          <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>ajwad.media00@gmail.com</span>
+        </div>
+        <div class="contact-card animate-on-scroll" style="--delay: 0.3s">
+          <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92V19.92C22 20.49 21.54 20.95 20.97 20.92C9.45 20.36 2 12.91 2 1.03C2 0.46 2.46 0 3.03 0H6.03C6.6 0 7.06 0.46 7.06 1.03C7.06 2.62 7.34 4.16 7.87 5.57C8.03 5.98 7.89 6.44 7.55 6.73L5.79 8.28C7.38 11.77 10.23 14.62 13.72 16.21L15.27 14.45C15.56 14.11 16.02 13.97 16.43 14.13C17.84 14.66 19.38 14.94 20.97 14.94C21.54 14.94 22 15.4 22 15.97V16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>+91 9946 161311</span>
+        </div>
+        <div class="contact-card animate-on-scroll" style="--delay: 0.4s">
+          <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Alappuzha, Kerala, India</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mouse tracking parallax for car - OPTIMIZED with requestAnimationFrame
+    const heroCar = document.getElementById('heroCar');
+    const heroSection = document.getElementById('home');
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isAnimating = false;
+
+    if (heroCar && heroSection) {
+      // Track mouse position
+      heroSection.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+
+        mouseX = (clientX / innerWidth - 0.5) * 2;
+        mouseY = (clientY / innerHeight - 0.5) * 2;
+
+        if (!isAnimating) {
+          isAnimating = true;
+          updateCarPosition();
+        }
+      });
+
+      // Smooth animation with requestAnimationFrame
+      function updateCarPosition() {
+        // Lerp (linear interpolation) for smooth movement
+        currentX += (mouseX - currentX) * 0.1;
+        currentY += (mouseY - currentY) * 0.1;
+
+        const xOffset = currentX * 20;
+        const yOffset = currentY * 20;
+
+        // Use translate3d for GPU acceleration
+        heroCar.style.transform = `translate3d(${xOffset}px, ${yOffset}px, 0) scale(1.05)`;
+
+        // Continue animation if still moving
+        if (Math.abs(mouseX - currentX) > 0.01 || Math.abs(mouseY - currentY) > 0.01) {
+          requestAnimationFrame(updateCarPosition);
+        } else {
+          isAnimating = false;
+        }
+      }
+
+      // Reset on mouse leave
+      heroSection.addEventListener('mouseleave', () => {
+        mouseX = 0;
+        mouseY = 0;
+        resetCarPosition();
+      });
+
+      function resetCarPosition() {
+        currentX += (0 - currentX) * 0.1;
+        currentY += (0 - currentY) * 0.1;
+
+        heroCar.style.transform = `translate3d(${currentX * 20}px, ${currentY * 20}px, 0) scale(1)`;
+
+        if (Math.abs(currentX) > 0.01 || Math.abs(currentY) > 0.01) {
+          requestAnimationFrame(resetCarPosition);
+        }
+      }
+    }
+
+    // Navigation active state on scroll - THROTTLED
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+      }
+      
+      scrollTimeout = window.requestAnimationFrame(() => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Project cards hover effect
+    const projectsStrip = document.getElementById('projectsStrip');
+    const projectPanels = document.querySelectorAll('.project-panel');
+
+    projectPanels.forEach(panel => {
+      panel.addEventListener('mouseenter', () => {
+        projectPanels.forEach(p => {
+          p.classList.add('dimmed');
+        });
+        panel.classList.remove('dimmed');
+        panel.classList.add('highlighted');
+      });
+
+      panel.addEventListener('mouseleave', () => {
+        projectPanels.forEach(p => {
+          p.classList.remove('dimmed');
+          p.classList.remove('highlighted');
+        });
+      });
+    });
+
+    projectsStrip.addEventListener('mouseleave', () => {
+      projectPanels.forEach(p => {
+        p.classList.remove('dimmed');
+        p.classList.remove('highlighted');
+      });
+    });
+
+    // Scroll animation for all elements
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Video aspect ratio detection for fullscreen
+    document.addEventListener('DOMContentLoaded', () => {
+      projectPanels.forEach(panel => {
+        const video = panel.querySelector('video');
+        
+        if (video) {
+          video.addEventListener('loadedmetadata', () => {
+            const aspectRatio = video.videoWidth / video.videoHeight;
+            
+            if (aspectRatio < 1) {
+              video.classList.add('portrait-video');
+            } else {
+              video.classList.add('landscape-video');
+            }
+          });
+
+          video.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement === video) {
+              video.style.objectFit = 'contain';
+            }
+          });
+
+          video.addEventListener('webkitfullscreenchange', () => {
+            if (document.webkitFullscreenElement === video) {
+              video.style.objectFit = 'contain';
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
