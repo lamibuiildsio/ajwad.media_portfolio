@@ -544,6 +544,7 @@ body {
   background: url('./pexels-therato-3384763.jpg') center/cover no-repeat;
   background-attachment: scroll;
   background-color: #000000;
+  position: relative;
 }
 
 .about-inner {
@@ -552,7 +553,7 @@ body {
   gap: 80px;
   align-items: center;
   position: relative;
-  z-index: 3;
+  z-index: 12;
 }
 
 .about-heading {
@@ -602,6 +603,8 @@ body {
   display: flex;
   gap: 28px;
   margin-top: 40px;
+  position: relative;
+  z-index: 15;
 }
 
 .tools-row img {
