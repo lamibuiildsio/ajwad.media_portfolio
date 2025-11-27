@@ -10,6 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Martel+Sans:wght@400;600;700;800&family=Mate+SC&display=swap" rel="stylesheet">
   
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("GJ9yZixRwEe-mQ-e9");
+    })();
+  </script>
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -165,21 +173,23 @@
     <div class="contact-inner">
       <div class="contact-form-card animate-on-scroll" style="--delay: 0.1s">
         <h2>Send me a message</h2>
-        <form>
+        
+        <!-- EmailJS Contact Form -->
+        <form id="contact-form">
           <label>Your name</label>
-          <input type="text" placeholder="Enter your full name" />
+          <input type="text" name="name" id="name" placeholder="Enter your full name" required />
 
           <label>Email Address</label>
-          <input type="email" placeholder="Enter your email address" />
+          <input type="email" name="email" id="email" placeholder="Enter your email address" required />
 
           <label>Your Message</label>
-          <textarea rows="4" placeholder="Tell me about your project or just say hello..."></textarea>
+          <textarea rows="4" name="message" id="message" placeholder="Tell me about your project or just say hello..." required></textarea>
 
-          <button type="submit" class="btn-primary">
+          <button type="submit" class="btn-primary" id="submit-btn">
             <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Send Message
+            <span id="btn-text">Send Message</span>
           </button>
         </form>
       </div>
@@ -272,6 +282,51 @@
           requestAnimationFrame(resetCarPosition);
         }
       }
+    }
+
+    // EmailJS Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending...';
+        submitBtn.style.opacity = '0.7';
+        
+        // Send email using EmailJS with your credentials
+        emailjs.sendForm('service_o5317ou', 'template_ly7bn81', this)
+          .then(function() {
+            // Success
+            btnText.textContent = 'Message Sent! ✓';
+            submitBtn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
+            contactForm.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+              btnText.textContent = 'Send Message';
+              submitBtn.style.background = 'linear-gradient(135deg, #00ffe0, #2b8bff)';
+              submitBtn.style.opacity = '1';
+              submitBtn.disabled = false;
+            }, 3000);
+          }, function(error) {
+            // Error
+            console.error('EmailJS Error:', error);
+            btnText.textContent = 'Failed. Try Again';
+            submitBtn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+            submitBtn.style.opacity = '1';
+            
+            setTimeout(() => {
+              btnText.textContent = 'Send Message';
+              submitBtn.style.background = 'linear-gradient(135deg, #00ffe0, #2b8bff)';
+              submitBtn.disabled = false;
+            }, 3000);
+          });
+      });
     }
 
     // Navigation active state on scroll - THROTTLED
