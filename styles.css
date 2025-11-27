@@ -788,21 +788,285 @@ body {
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
 }
 
-/* RESPONSIVE */
+/* ============================================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ============================================= */
+
+/* Tablets (Portrait) - 900px and below */
 @media (max-width: 900px) {
-  .navbar { padding: 0 24px; }
+  .navbar { 
+    padding: 0 24px; 
+  }
+  
   .hero-title { 
     font-size: 48px; 
     letter-spacing: 0.1em;
   }
+  
   .hero-title span {
     animation-delay: calc(0.04s * var(--i)), 0s;
   }
-  .section { padding: 120px 24px 80px; }
-  .section-title { font-size: 24px; }
-  .projects-layout { flex-direction: column; align-items: flex-start; }
-  .projects-strip { width: 100%; }
-  .about-inner, .contact-inner { display: block; }
-  .about-inner > * + * { margin-top: 40px; }
-  .contact-inner > * + * { margin-top: 32px; }
+  
+  .section { 
+    padding: 120px 24px 80px; 
+  }
+  
+  .section-title { 
+    font-size: 24px; 
+  }
+  
+  .projects-layout { 
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .projects-strip { 
+    width: 100%; 
+  }
+  
+  .about-inner, .contact-inner { 
+    display: block; 
+  }
+  
+  .about-inner > * + * { 
+    margin-top: 40px; 
+  }
+  
+  .contact-inner > * + * { 
+    margin-top: 32px; 
+  }
+}
+
+/* Mobile Devices - 768px and below */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    height: 60px;
+  }
+  
+  .navbar-logo img {
+    height: 36px;
+  }
+  
+  .nav-links {
+    gap: 8px;
+  }
+  
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .hero-title {
+    font-size: 42px;
+  }
+  
+  .section {
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+  
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-nav {
+    margin-bottom: 40px;
+  }
+  
+  .projects-intro-card {
+    width: 100%;
+    height: 180px;
+    font-size: 20px;
+  }
+  
+  .project-panel {
+    flex: 0 0 240px;
+    height: 320px;
+  }
+  
+  .about-heading {
+    font-size: 20px;
+  }
+  
+  .about-logo {
+    margin-top: 32px;
+  }
+  
+  .logo-glow {
+    width: 100px;
+  }
+  
+  .tools-row {
+    gap: 20px;
+    margin-top: 32px;
+    justify-content: center;
+  }
+  
+  .tools-row img {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .contact-form-card {
+    padding: 32px 24px;
+  }
+  
+  .contact-form-card h2 {
+    font-size: 24px;
+  }
+  
+  .contact-card {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  .navbar-logo img {
+    height: 30px;
+  }
+  
+  .nav-links {
+    gap: 6px;
+  }
+  
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .hero-title {
+    font-size: 32px;
+    letter-spacing: 0.08em;
+  }
+  
+  .section {
+    padding: 80px 16px 50px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
+  .section-nav {
+    margin-bottom: 32px;
+  }
+  
+  .projects-intro-card {
+    height: 150px;
+    font-size: 18px;
+    border-radius: 24px;
+  }
+  
+  .projects-strip {
+    gap: 20px;
+  }
+  
+  .project-panel {
+    flex: 0 0 200px;
+    height: 280px;
+    border-radius: 20px;
+  }
+  
+  .about-heading {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .about-paragraph {
+    font-size: 15px;
+  }
+  
+  .about-logo {
+    margin-top: 24px;
+  }
+  
+  .logo-glow {
+    width: 80px;
+  }
+  
+  .tools-row {
+    gap: 16px;
+  }
+  
+  .tools-row img {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .contact-form-card {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+  
+  .contact-form-card h2 {
+    font-size: 20px;
+  }
+  
+  .contact-form-card label {
+    font-size: 12px;
+  }
+  
+  .contact-form-card input,
+  .contact-form-card textarea {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .btn-primary {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+  
+  .btn-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .contact-card {
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+  
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Very Small Mobile - 380px and below */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .nav-link {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+  
+  .section-title {
+    font-size: 16px;
+  }
+  
+  .projects-intro-card h2 {
+    font-size: 16px;
+  }
+  
+  .project-panel {
+    flex: 0 0 180px;
+    height: 260px;
+  }
+  
+  .tools-row img {
+    width: 42px;
+    height: 42px;
+  }
 }
