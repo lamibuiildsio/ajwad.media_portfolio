@@ -437,6 +437,48 @@ body {
   display: none !important;
 }
 
+/* FULLSCREEN BUTTON */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 6;
+  opacity: 0;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-btn svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+  transition: all 0.3s ease;
+}
+
+.project-panel.highlighted .fullscreen-btn {
+  opacity: 1;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.fullscreen-btn:hover svg {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+.fullscreen-btn:active {
+  transform: scale(0.95);
+}
+
 /* ABOUT */
 .about {
   background: url('./pexels-therato-3384763.jpg') center/cover no-repeat;
@@ -693,6 +735,8 @@ body {
   .contact-form-card { padding: 32px 24px; }
   .contact-form-card h2 { font-size: 24px; }
   .contact-card { padding: 16px 24px; font-size: 14px; }
+  .fullscreen-btn { bottom: 12px; right: 12px; padding: 8px; }
+  .fullscreen-btn svg { width: 20px; height: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -722,6 +766,8 @@ body {
   .contact-card { padding: 14px 20px; font-size: 13px; }
   .contact-icon { width: 18px; height: 18px; }
   .play-icon { width: 48px; height: 48px; }
+  .fullscreen-btn { bottom: 10px; right: 10px; padding: 6px; }
+  .fullscreen-btn svg { width: 18px; height: 18px; }
 }
 
 @media (max-width: 380px) {
@@ -732,191 +778,4 @@ body {
   .project-panel { flex: 0 0 180px; height: 260px; }
   .tools-row img { width: 42px; height: 42px; }
   .play-icon { width: 40px; height: 40px; }
-}
-
-/* ============================================= */
-/* SOUND WAVE INDICATOR */
-/* FULLSCREEN BUTTON */
-/* ============================================= */
-
-.sound-wave-indicator {
-.fullscreen-btn {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 6;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  background: rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sound-wave-icon {
-.fullscreen-btn svg {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
-  transition: all 0.3s ease;
-}
-
-.project-panel.highlighted .sound-wave-indicator {
-.project-panel.highlighted .fullscreen-btn {
-  opacity: 1;
-}
-
-/* Animated sound waves when playing */
-.sound-wave-indicator.active .wave {
-  animation: soundWaveAnimation 1.5s ease-in-out infinite;
-}
-
-.sound-wave-indicator.active .wave-1 {
-  animation-delay: 0s;
-}
-
-.sound-wave-indicator.active .wave-2 {
-  animation-delay: 0.2s;
-.fullscreen-btn:hover {
-  background: rgba(0, 0, 0, 0.9);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
-}
-
-@keyframes soundWaveAnimation {
-  0%, 100% {
-    opacity: 0.3;
-    stroke-width: 1.5;
-  }
-  50% {
-    opacity: 1;
-    stroke-width: 2.5;
-  }
-.fullscreen-btn:hover svg {
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
-}
-
-/* Glow effect when sound is active */
-.sound-wave-indicator.active {
-  background: rgba(0, 255, 224, 0.15);
-  box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
-.fullscreen-btn:active {
-  transform: scale(0.95);
-}
-
-/* Mobile: Larger sound indicator */
-/* Mobile: Larger fullscreen button */
-@media (max-width: 768px) {
-  .sound-wave-indicator {
-  .fullscreen-btn {
-    bottom: 12px;
-    right: 12px;
-    padding: 6px;
-    padding: 8px;
-  }
-
-  .sound-wave-icon {
-    width: 36px;
-    height: 36px;
-  .fullscreen-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sound-wave-indicator {
-  .fullscreen-btn {
-    bottom: 10px;
-    right: 10px;
-    padding: 5px;
-    padding: 6px;
-  }
-
-  .sound-wave-icon {
-    width: 32px;
-    height: 32px;
-  .fullscreen-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-}
-/* ============================================= */
-/* FULLSCREEN BUTTON */
-/* ============================================= */
-
-.fullscreen-btn {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 6;
-  opacity: 0;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fullscreen-btn svg {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
-  transition: all 0.3s ease;
-}
-
-.project-panel.highlighted .fullscreen-btn {
-  opacity: 1;
-}
-
-.fullscreen-btn:hover {
-  background: rgba(0, 0, 0, 0.9);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
-}
-
-.fullscreen-btn:hover svg {
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
-}
-
-.fullscreen-btn:active {
-  transform: scale(0.95);
-}
-
-/* Mobile: Larger fullscreen button */
-@media (max-width: 768px) {
-  .fullscreen-btn {
-    bottom: 12px;
-    right: 12px;
-    padding: 8px;
-  }
-  
-  .fullscreen-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .fullscreen-btn {
-    bottom: 10px;
-    right: 10px;
-    padding: 6px;
-  }
-  
-  .fullscreen-btn svg {
-    width: 18px;
-    height: 18px;
-  }
 }
