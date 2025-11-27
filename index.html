@@ -84,7 +84,7 @@
       <div class="projects-strip" id="projectsStrip">
         <!-- 1 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.1s">
-          <video muted loop poster="./Audi R8.jpg" preload="metadata">
+          <video loop poster="./Audi R8.jpg" preload="metadata">
             <source src="./Audi Out Me.mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -97,7 +97,7 @@
 
         <!-- 2 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.2s">
-          <video muted loop poster="./Mclaren.jpg" preload="metadata">
+          <video loop poster="./Mclaren.jpg" preload="metadata">
             <source src="./Mclaren Out .mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -110,7 +110,7 @@
 
         <!-- 3 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.3s">
-          <video muted loop poster="thumbnails/project3-thumb.jpg" preload="metadata">
+          <video loop poster="thumbnails/project3-thumb.jpg" preload="metadata">
             <source src="./Amg GT Out.mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -123,7 +123,7 @@
 
         <!-- 4 - Portrait -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.4s">
-          <video muted loop poster="thumbnails/project4-thumb.jpg" preload="metadata">
+          <video loop poster="thumbnails/project4-thumb.jpg" preload="metadata">
             <source src="./EJADAH Out.mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -136,7 +136,7 @@
 
         <!-- 5 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.5s">
-          <video muted loop poster="./400 Z.jpg" preload="metadata">
+          <video loop poster="./400 Z.jpg" preload="metadata">
             <source src="./400Z Out Me.mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -149,7 +149,7 @@
 
         <!-- 6 - Portrait -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.6s">
-          <video muted loop poster="thumbnails/project6-thumb.jpg" preload="metadata">
+          <video loop poster="thumbnails/project6-thumb.jpg" preload="metadata">
             <source src="./Godwin out.mp4" type="video/mp4" />
           </video>
           <div class="play-overlay">
@@ -392,7 +392,7 @@
     });
 
     // ============================================
-    // PROJECTS: Hover to play video
+    // PROJECTS: Hover to play video WITH SOUND
     // ============================================
     const projectsStrip = document.getElementById('projectsStrip');
     const projectPanels = document.querySelectorAll('.project-panel');
@@ -401,7 +401,19 @@
       const video = panel.querySelector('video');
       const playOverlay = panel.querySelector('.play-overlay');
       
-      // Mouse enter - play video and highlight card
+      // Create sound wave indicator
+      const soundWave = document.createElement('div');
+      soundWave.className = 'sound-wave-indicator';
+      soundWave.innerHTML = `
+        <svg class="sound-wave-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="wave wave-1" d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 11.995C17.0039 13.3208 16.4774 14.5924 15.54 15.53" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="wave wave-2" d="M18.07 5.93C19.9447 7.80528 21.0039 10.3453 21.0039 13C21.0039 15.6547 19.9447 18.1947 18.07 20.07" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+      panel.appendChild(soundWave);
+      
+      // Mouse enter - play video WITH SOUND
       panel.addEventListener('mouseenter', () => {
         // Dim all other cards and pause their videos
         projectPanels.forEach(p => {
@@ -410,6 +422,7 @@
           if (v && v !== video) {
             v.pause();
             v.currentTime = 0;
+            v.muted = true;
           }
         });
         
@@ -417,13 +430,25 @@
         panel.classList.remove('dimmed');
         panel.classList.add('highlighted');
         
-        // Play video on hover
+        // Play video with sound
         if (video) {
-          video.play().catch(err => {
-            console.log('Video play failed:', err);
+          // Unmute the video
+          video.muted = false;
+          
+          // Try to play with sound
+          video.play().then(() => {
+            // Success! Video is playing with sound
+            console.log('Playing with sound');
+            soundWave.classList.add('active');
+          }).catch(err => {
+            // Browser blocked autoplay with sound
+            // Fallback: play muted
+            console.log('Autoplay with sound blocked, playing muted');
+            video.muted = true;
+            video.play().catch(e => console.log('Play failed:', e));
           });
           
-          // Hide play overlay when video plays
+          // Hide play overlay
           if (playOverlay) {
             playOverlay.style.opacity = '0';
           }
@@ -441,11 +466,25 @@
         if (video) {
           video.pause();
           video.currentTime = 0;
+          video.muted = true;
+          soundWave.classList.remove('active');
           
-          // Show play overlay when video stops
+          // Show play overlay
           if (playOverlay) {
             playOverlay.style.opacity = '1';
           }
+        }
+      });
+
+      // Click to retry unmuted playback if it was blocked
+      panel.addEventListener('click', () => {
+        if (video && panel.classList.contains('highlighted')) {
+          video.muted = false;
+          video.play().then(() => {
+            soundWave.classList.add('active');
+          }).catch(err => {
+            console.log('Play with sound failed:', err);
+          });
         }
       });
     });
@@ -457,12 +496,17 @@
         p.classList.remove('highlighted');
         const v = p.querySelector('video');
         const overlay = p.querySelector('.play-overlay');
+        const wave = p.querySelector('.sound-wave-indicator');
         if (v) {
           v.pause();
           v.currentTime = 0;
+          v.muted = true;
         }
         if (overlay) {
           overlay.style.opacity = '1';
+        }
+        if (wave) {
+          wave.classList.remove('active');
         }
       });
     });
