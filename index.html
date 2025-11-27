@@ -93,6 +93,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
 
         <!-- 2 - Landscape -->
@@ -106,6 +111,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
 
         <!-- 3 - Landscape -->
@@ -119,6 +129,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
 
         <!-- 4 - Portrait -->
@@ -132,6 +147,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
 
         <!-- 5 - Landscape -->
@@ -145,6 +165,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
 
         <!-- 6 - Portrait -->
@@ -158,6 +183,11 @@
               <path d="M10 8L16 12L10 16V8Z" fill="white"/>
             </svg>
           </div>
+          <button class="fullscreen-btn" aria-label="Fullscreen">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </article>
       </div>
     </div>
@@ -392,7 +422,7 @@
     });
 
     // ============================================
-    // PROJECTS: Hover to play video WITH SOUND
+    // PROJECTS: Hover to play video WITH SOUND + FULLSCREEN
     // ============================================
     const projectsStrip = document.getElementById('projectsStrip');
     const projectPanels = document.querySelectorAll('.project-panel');
@@ -400,18 +430,7 @@
     projectPanels.forEach(panel => {
       const video = panel.querySelector('video');
       const playOverlay = panel.querySelector('.play-overlay');
-      
-      // Create sound wave indicator
-      const soundWave = document.createElement('div');
-      soundWave.className = 'sound-wave-indicator';
-      soundWave.innerHTML = `
-        <svg class="sound-wave-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="wave wave-1" d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 11.995C17.0039 13.3208 16.4774 14.5924 15.54 15.53" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="wave wave-2" d="M18.07 5.93C19.9447 7.80528 21.0039 10.3453 21.0039 13C21.0039 15.6547 19.9447 18.1947 18.07 20.07" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      `;
-      panel.appendChild(soundWave);
+      const fullscreenBtn = panel.querySelector('.fullscreen-btn');
       
       // Mouse enter - play video WITH SOUND
       panel.addEventListener('mouseenter', () => {
@@ -432,25 +451,22 @@
         
         // Play video with sound
         if (video) {
-          // Unmute the video
           video.muted = false;
           
-          // Try to play with sound
           video.play().then(() => {
-            // Success! Video is playing with sound
             console.log('Playing with sound');
-            soundWave.classList.add('active');
           }).catch(err => {
-            // Browser blocked autoplay with sound
-            // Fallback: play muted
             console.log('Autoplay with sound blocked, playing muted');
             video.muted = true;
             video.play().catch(e => console.log('Play failed:', e));
           });
           
-          // Hide play overlay
+          // Hide play overlay, show fullscreen button
           if (playOverlay) {
             playOverlay.style.opacity = '0';
+          }
+          if (fullscreenBtn) {
+            fullscreenBtn.style.opacity = '1';
           }
         }
       });
@@ -467,26 +483,41 @@
           video.pause();
           video.currentTime = 0;
           video.muted = true;
-          soundWave.classList.remove('active');
           
-          // Show play overlay
+          // Show play overlay, hide fullscreen button
           if (playOverlay) {
             playOverlay.style.opacity = '1';
+          }
+          if (fullscreenBtn) {
+            fullscreenBtn.style.opacity = '0';
           }
         }
       });
 
-      // Click to retry unmuted playback if it was blocked
-      panel.addEventListener('click', () => {
-        if (video && panel.classList.contains('highlighted')) {
+      // Click video to unmute if blocked
+      video.addEventListener('click', () => {
+        if (panel.classList.contains('highlighted') && video.muted) {
           video.muted = false;
-          video.play().then(() => {
-            soundWave.classList.add('active');
-          }).catch(err => {
-            console.log('Play with sound failed:', err);
-          });
+          video.play();
         }
       });
+
+      // Fullscreen button click
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          if (video.requestFullscreen) {
+            video.requestFullscreen();
+          } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+          } else if (video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+          } else if (video.msRequestFullscreen) {
+            video.msRequestFullscreen();
+          }
+        });
+      }
     });
 
     // Reset all when mouse leaves the strip
@@ -496,7 +527,7 @@
         p.classList.remove('highlighted');
         const v = p.querySelector('video');
         const overlay = p.querySelector('.play-overlay');
-        const wave = p.querySelector('.sound-wave-indicator');
+        const btn = p.querySelector('.fullscreen-btn');
         if (v) {
           v.pause();
           v.currentTime = 0;
@@ -505,8 +536,8 @@
         if (overlay) {
           overlay.style.opacity = '1';
         }
-        if (wave) {
-          wave.classList.remove('active');
+        if (btn) {
+          btn.style.opacity = '0';
         }
       });
     });
@@ -546,18 +577,6 @@
               video.classList.add('portrait-video');
             } else {
               video.classList.add('landscape-video');
-            }
-          });
-
-          video.addEventListener('fullscreenchange', () => {
-            if (document.fullscreenElement === video) {
-              video.style.objectFit = 'contain';
-            }
-          });
-
-          video.addEventListener('webkitfullscreenchange', () => {
-            if (document.webkitFullscreenElement === video) {
-              video.style.objectFit = 'contain';
             }
           });
         }
