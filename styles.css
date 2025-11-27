@@ -733,3 +733,90 @@ body {
   .tools-row img { width: 42px; height: 42px; }
   .play-icon { width: 40px; height: 40px; }
 }
+
+/* ============================================= */
+/* SOUND WAVE INDICATOR */
+/* ============================================= */
+
+.sound-wave-indicator {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sound-wave-icon {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+}
+
+.project-panel.highlighted .sound-wave-indicator {
+  opacity: 1;
+}
+
+/* Animated sound waves when playing */
+.sound-wave-indicator.active .wave {
+  animation: soundWaveAnimation 1.5s ease-in-out infinite;
+}
+
+.sound-wave-indicator.active .wave-1 {
+  animation-delay: 0s;
+}
+
+.sound-wave-indicator.active .wave-2 {
+  animation-delay: 0.2s;
+}
+
+@keyframes soundWaveAnimation {
+  0%, 100% {
+    opacity: 0.3;
+    stroke-width: 1.5;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 2.5;
+  }
+}
+
+/* Glow effect when sound is active */
+.sound-wave-indicator.active {
+  background: rgba(0, 255, 224, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
+}
+
+/* Mobile: Larger sound indicator */
+@media (max-width: 768px) {
+  .sound-wave-indicator {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px;
+  }
+  
+  .sound-wave-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sound-wave-indicator {
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+  
+  .sound-wave-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
