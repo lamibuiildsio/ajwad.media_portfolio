@@ -84,44 +84,80 @@
       <div class="projects-strip" id="projectsStrip">
         <!-- 1 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.1s">
-          <video controls poster="./Audi R8.jpg">
+          <video muted loop poster="./Audi R8.jpg" preload="metadata">
             <source src="./Audi Out Me.mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
 
         <!-- 2 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.2s">
-          <video controls poster="./Mclaren.jpg">
+          <video muted loop poster="./Mclaren.jpg" preload="metadata">
             <source src="./Mclaren Out .mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
 
         <!-- 3 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.3s">
-          <video controls poster="thumbnails/project3-thumb.jpg">
+          <video muted loop poster="thumbnails/project3-thumb.jpg" preload="metadata">
             <source src="./Amg GT Out.mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
 
         <!-- 4 - Portrait -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.4s">
-          <video controls poster="thumbnails/project4-thumb.jpg">
+          <video muted loop poster="thumbnails/project4-thumb.jpg" preload="metadata">
             <source src="./EJADAH Out.mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
 
         <!-- 5 - Landscape -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.5s">
-          <video controls poster="./400 Z.jpg">
+          <video muted loop poster="./400 Z.jpg" preload="metadata">
             <source src="./400Z Out Me.mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
 
         <!-- 6 - Portrait -->
         <article class="project-panel animate-on-scroll" style="--delay: 0.6s">
-          <video controls poster="thumbnails/project6-thumb.jpg">
+          <video muted loop poster="thumbnails/project6-thumb.jpg" preload="metadata">
             <source src="./Godwin out.mp4" type="video/mp4" />
           </video>
+          <div class="play-overlay">
+            <svg class="play-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="white"/>
+            </svg>
+          </div>
         </article>
       </div>
     </div>
@@ -221,7 +257,9 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Mouse tracking parallax for car - OPTIMIZED with requestAnimationFrame
+    // ============================================
+    // HERO: Mouse tracking parallax for car
+    // ============================================
     const heroCar = document.getElementById('heroCar');
     const heroSection = document.getElementById('home');
     let mouseX = 0;
@@ -231,7 +269,6 @@
     let isAnimating = false;
 
     if (heroCar && heroSection) {
-      // Track mouse position
       heroSection.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
         const { innerWidth, innerHeight } = window;
@@ -245,19 +282,15 @@
         }
       });
 
-      // Smooth animation with requestAnimationFrame
       function updateCarPosition() {
-        // Lerp (linear interpolation) for smooth movement
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
 
         const xOffset = currentX * 20;
         const yOffset = currentY * 20;
 
-        // Use translate3d for GPU acceleration
         heroCar.style.transform = `translate3d(${xOffset}px, ${yOffset}px, 0) scale(1.05)`;
 
-        // Continue animation if still moving
         if (Math.abs(mouseX - currentX) > 0.01 || Math.abs(mouseY - currentY) > 0.01) {
           requestAnimationFrame(updateCarPosition);
         } else {
@@ -265,7 +298,6 @@
         }
       }
 
-      // Reset on mouse leave
       heroSection.addEventListener('mouseleave', () => {
         mouseX = 0;
         mouseY = 0;
@@ -284,7 +316,9 @@
       }
     }
 
-    // EmailJS Contact Form Submission
+    // ============================================
+    // CONTACT FORM: EmailJS Integration
+    // ============================================
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     const btnText = document.getElementById('btn-text');
@@ -293,20 +327,16 @@
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Disable button and show loading
         submitBtn.disabled = true;
         btnText.textContent = 'Sending...';
         submitBtn.style.opacity = '0.7';
         
-        // Send email using EmailJS with your credentials
         emailjs.sendForm('service_o5317ou', 'template_ly7bn81', this)
           .then(function() {
-            // Success
             btnText.textContent = 'Message Sent! ✓';
             submitBtn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
             contactForm.reset();
             
-            // Reset button after 3 seconds
             setTimeout(() => {
               btnText.textContent = 'Send Message';
               submitBtn.style.background = 'linear-gradient(135deg, #00ffe0, #2b8bff)';
@@ -314,7 +344,6 @@
               submitBtn.disabled = false;
             }, 3000);
           }, function(error) {
-            // Error
             console.error('EmailJS Error:', error);
             btnText.textContent = 'Failed. Try Again';
             submitBtn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
@@ -329,7 +358,9 @@
       });
     }
 
-    // Navigation active state on scroll - THROTTLED
+    // ============================================
+    // NAVIGATION: Active state on scroll
+    // ============================================
     let scrollTimeout;
     window.addEventListener('scroll', () => {
       if (scrollTimeout) {
@@ -360,35 +391,85 @@
       });
     });
 
-    // Project cards hover effect
+    // ============================================
+    // PROJECTS: Hover to play video
+    // ============================================
     const projectsStrip = document.getElementById('projectsStrip');
     const projectPanels = document.querySelectorAll('.project-panel');
 
     projectPanels.forEach(panel => {
+      const video = panel.querySelector('video');
+      const playOverlay = panel.querySelector('.play-overlay');
+      
+      // Mouse enter - play video and highlight card
       panel.addEventListener('mouseenter', () => {
+        // Dim all other cards and pause their videos
         projectPanels.forEach(p => {
           p.classList.add('dimmed');
+          const v = p.querySelector('video');
+          if (v && v !== video) {
+            v.pause();
+            v.currentTime = 0;
+          }
         });
+        
+        // Highlight current card
         panel.classList.remove('dimmed');
         panel.classList.add('highlighted');
+        
+        // Play video on hover
+        if (video) {
+          video.play().catch(err => {
+            console.log('Video play failed:', err);
+          });
+          
+          // Hide play overlay when video plays
+          if (playOverlay) {
+            playOverlay.style.opacity = '0';
+          }
+        }
       });
 
+      // Mouse leave - pause video
       panel.addEventListener('mouseleave', () => {
         projectPanels.forEach(p => {
           p.classList.remove('dimmed');
           p.classList.remove('highlighted');
         });
+        
+        // Pause video and reset
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+          
+          // Show play overlay when video stops
+          if (playOverlay) {
+            playOverlay.style.opacity = '1';
+          }
+        }
       });
     });
 
+    // Reset all when mouse leaves the strip
     projectsStrip.addEventListener('mouseleave', () => {
       projectPanels.forEach(p => {
         p.classList.remove('dimmed');
         p.classList.remove('highlighted');
+        const v = p.querySelector('video');
+        const overlay = p.querySelector('.play-overlay');
+        if (v) {
+          v.pause();
+          v.currentTime = 0;
+        }
+        if (overlay) {
+          overlay.style.opacity = '1';
+        }
       });
     });
 
-    // Scroll animation for all elements
+    // ============================================
+    // SCROLL ANIMATIONS: Intersection Observer
+    // ============================================
     const observerOptions = {
       threshold: 0.2,
       rootMargin: '0px 0px -50px 0px'
@@ -406,7 +487,9 @@
       observer.observe(element);
     });
 
-    // Video aspect ratio detection for fullscreen
+    // ============================================
+    // VIDEO: Aspect ratio detection
+    // ============================================
     document.addEventListener('DOMContentLoaded', () => {
       projectPanels.forEach(panel => {
         const video = panel.querySelector('video');
